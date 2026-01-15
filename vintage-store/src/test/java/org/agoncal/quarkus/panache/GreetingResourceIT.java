@@ -1,4 +1,4 @@
-package org.agoncal.quarkus.jdbc;
+package org.agoncal.quarkus.panache;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

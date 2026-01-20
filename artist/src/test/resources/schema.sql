@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS t_artists (
+    id BIGINT NOT NULL,
+    name VARCHAR(255),
+    bio VARCHAR(255),
+    created_date TIMESTAMP,
+    PRIMARY KEY (id)
+);

@@ -1,20 +1,31 @@
 package org.agoncal.quarkus.jdbc;
 
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.sql.SQLException;
+
+import jakarta.inject.Inject;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 class ArtistRepositoryTest {
+
+    @Inject
+    ArtistRepository repository;
+
     @Test
-    void testHelloEndpoint() {
-        given()
-                .when().get("/hello")
-                .then()
-                .statusCode(200)
-                .body(is("Hello RESTEasy"));
+    public void shouldCreateAndFindAnArtist() throws SQLException {
+        Artist artist = new Artist("name", "bio");
+
+        repository.persist(artist);
+        Assertions.assertNotNull(artist.getId());
+
+        artist = repository.findById(artist.getId());
+        assertEquals("name", artist.getName());
     }
 
 }

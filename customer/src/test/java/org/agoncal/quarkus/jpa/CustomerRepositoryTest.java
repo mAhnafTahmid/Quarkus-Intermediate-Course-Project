@@ -1,20 +1,32 @@
 package org.agoncal.quarkus.jpa;
 
+import io.quarkus.test.TestTransaction;
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
+import java.sql.SQLException;
 
 @QuarkusTest
 class CustomerRepositoryTest {
+
+    @Inject
+    CustomerRepository repository;
+
     @Test
-    void testHelloEndpoint() {
-        given()
-                .when().get("/hello")
-                .then()
-                .statusCode(200)
-                .body(is("Hello RESTEasy"));
+    @TestTransaction
+    public void shouldCreateAndFindACustomer() throws SQLException {
+        Customer customer = new Customer("firstname", "lastname", "email");
+
+        repository.persist(customer);
+        Assertions.assertNotNull(customer.getId());
+
+        customer = repository.findById(customer.getId());
+        assertEquals("firstname", customer.getFirstName());
     }
 
 }

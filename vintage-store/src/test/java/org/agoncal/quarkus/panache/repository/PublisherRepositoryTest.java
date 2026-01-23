@@ -1,10 +1,11 @@
-package org.agoncal.quarkus.panache;
+package org.agoncal.quarkus.panache.repository;
 
 import io.quarkus.test.TestTransaction;
 import io.quarkus.test.junit.QuarkusTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.agoncal.quarkus.panache.model.Publisher;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

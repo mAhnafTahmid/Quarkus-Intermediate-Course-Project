@@ -6,6 +6,7 @@
         <groupId>org.agoncal.course.quarkus.orm</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>org.agoncal.course.quarkus.orm</groupId>
     <artifactId>customer</artifactId>

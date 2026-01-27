@@ -21,7 +21,11 @@ class ArtistRepositoryTest {
 
     @Test
     @TestTransaction
-    public void shouldCreateAndFindAnArtist() throws SQLException {
+    public void shouldCreateAndFindAnArtist() {
+        long count = repository.count();
+        int listAll = repository.listAll().size();
+        assertEquals(count, listAll);
+
         Artist artist = new Artist("name", "bio");
 
         repository.persist(artist);

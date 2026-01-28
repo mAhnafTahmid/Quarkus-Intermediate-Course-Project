@@ -5,6 +5,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.agoncal.quarkus.jpa.Customer;
 import org.junit.jupiter.api.Assertions;
@@ -21,6 +22,7 @@ class CustomerRepositoryTest {
     @Test
     @TestTransaction
     public void shouldCreateAndFindACustomer() throws SQLException {
+        assertTrue(repository.listAllDans().size() <= repository.count());
         Customer customer = new Customer("firstname", "lastname", "email");
 
         repository.persist(customer);

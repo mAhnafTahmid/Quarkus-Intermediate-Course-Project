@@ -858,3 +858,5 @@ INSERT INTO t_purchase_orders (id, customer_fk, purchase_order_date, created_dat
 		(493, 49, 117, 4, '2021-05-20T15:40:00.751550Z');
 
 ALTER SEQUENCE hibernate_sequence RESTART WITH 600;
+
+SELECT setval('t_artists_id_seq', (SELECT MAX(id) FROM t_artists));

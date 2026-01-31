@@ -5,7 +5,7 @@
         <table name="t_artists"/>
         <attributes>
             <id name="id">
-                <generated-value strategy="AUTO"/>
+                <generated-value strategy="IDENTITY"/>
             </id>
             <basic name="name">
                 <column length="100" nullable="false"/>

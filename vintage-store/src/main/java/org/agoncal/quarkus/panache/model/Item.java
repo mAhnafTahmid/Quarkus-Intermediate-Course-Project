@@ -7,6 +7,7 @@ import org.agoncal.quarkus.jdbc.Artist;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
@@ -16,7 +17,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "t_items")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "dtype")
 public class Item extends PanacheEntity {
 
     @Column(length = 100, nullable = false)

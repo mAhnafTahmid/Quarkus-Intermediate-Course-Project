@@ -857,6 +857,15 @@ INSERT INTO t_purchase_orders (id, customer_fk, purchase_order_date, created_dat
 		(492, 49, 21, 3, '2021-05-20T15:40:00.751539Z'),
 		(493, 49, 117, 4, '2021-05-20T15:40:00.751550Z');
 
-ALTER SEQUENCE hibernate_sequence RESTART WITH 600;
+-- ALTER SEQUENCE hibernate_sequence RESTART WITH 600;
 
-SELECT setval('t_artists_id_seq', (SELECT MAX(id) FROM t_artists));
+SELECT setval('t_artists_id_seq', COALESCE((SELECT MAX(id) FROM t_artists), 1));
+-- Reset all sequences to avoid ID collisions
+SELECT setval('myentity_seq', (SELECT COALESCE(MAX(id), 1) FROM myentity));
+SELECT setval('panachemyentity_seq', (SELECT COALESCE(MAX(id), 1) FROM panachemyentity));
+SELECT setval('t_customers_seq', (SELECT COALESCE(MAX(id), 1) FROM t_customers));
+SELECT setval('t_items_seq', (SELECT COALESCE(MAX(id), 1) FROM t_items));
+SELECT setval('t_publishers_seq', (SELECT COALESCE(MAX(id), 1) FROM t_publishers));
+SELECT setval('t_purchase_order_lines_seq', (SELECT COALESCE(MAX(id), 1) FROM t_purchase_order_lines));
+SELECT setval('t_purchase_orders_seq', (SELECT COALESCE(MAX(id), 1) FROM t_purchase_orders));
+SELECT setval('t_tracks_seq', (SELECT COALESCE(MAX(id), 1) FROM t_tracks));

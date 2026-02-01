@@ -3,6 +3,7 @@ package org.agoncal.quarkus.panache.model;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -10,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+@DiscriminatorValue("Book")
 public class Book extends Item {
 
     @Column(length = 15)

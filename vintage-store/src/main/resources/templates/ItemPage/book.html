@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book {book.id}</title>
-  </head>
-  <body>
-    Id: {book.id} Title: {book.title} Description: {book.description} Price:
-    {book.price} Isbn: {book.isbn} Number of pages: {book.nbOfPages} Publication
-    date: {book.publicationDate} Language: {book.language} Created date:
-    {book.createdDate}
-  </body>
-</html>
+{#include base.html} {#title}Book {book.id}{/title} {#body} Id: {book.id} Title:
+{book.title} Description: {book.description} Price: {book.price} Isbn:
+{book.isbn} Number of pages: {book.nbOfPages} Publication date:
+{book.publicationDate} Language: {book.language} Created date:
+{book.createdDate} {/body} {/include}

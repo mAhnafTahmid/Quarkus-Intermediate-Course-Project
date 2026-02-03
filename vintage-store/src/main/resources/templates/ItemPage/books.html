@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Books</title>
-  </head>
-  <body>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Title</th>
-          <th>Price</th>
-          <th>ISBN</th>
-          <th>Number of pages</th>
-          <th>Language</th>
-        </tr>
-      </thead>
+{#include base.html} {#title}Books{/title} {#body}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Number of pages</th>
+      <th scope="col">Language</th>
+    </tr>
+  </thead>
 
-      <tbody>
-        {#for book in books}
-        <tr>
-          <td>{book.id}</td>
-          <td>{book.title}</td>
-          <td>{book.price}</td>
-          <td>{book.isbn}</td>
-          <td>{book.nbOfPages}</td>
-          <td>{book.language}</td>
-        </tr>
-        {/for}
-      </tbody>
-    </table>
-  </body>
-</html>
+  <tbody>
+    {#for book in books}
+    <tr>
+      <td>{book.id}</td>
+      <td>{book.title}</td>
+      <td>{book.price}</td>
+      <td>{book.isbn}</td>
+      <td>{book.nbOfPages}</td>
+      <td>{book.language}</td>
+    </tr>
+    {/for}
+  </tbody>
+</table>
+{/body} {/include}

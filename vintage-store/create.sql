@@ -53,7 +53,7 @@
         id bigint not null,
         publisher_fk bigint,
         isbn varchar(15),
-        dtype varchar(31) not null check ((dtype in ('Item','Book','CD'))),
+        dtype varchar(31) not null check ((dtype in ('Item','CD','Book'))),
         genre varchar(100),
         title varchar(100) not null,
         description varchar(3000),
